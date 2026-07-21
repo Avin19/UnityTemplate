@@ -22,7 +22,7 @@ public class PlayerDataManager : MonoBehaviour
     public bool Haptic => data != null && data.Haptic;
     public string PlayerId => data != null ? data.PlayerID : "";
     public string PlayerName => data != null ? data.PlayerName : "";
-
+    public int CurrentLevel => data != null ? data.CurrentLevel : 0;
     private string _savePath;
     private string SavePath => _savePath ??= Path.Combine(Application.persistentDataPath, SaveFileName);
 
