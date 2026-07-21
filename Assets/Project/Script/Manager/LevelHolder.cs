@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class LevelHolder : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private Transform pfItem;
+    [SerializeField] private Transform levelholder;
+
+    [SerializeField] private int totalLevel = 10; // FOr now let uses this
+
+
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        for (int i = 0; i < totalLevel; i++)
+        {
+            GameObject Go = Instantiate(pfItem, levelholder).gameObject;
+            Go.GetComponent<ItemDetail>().SetLevelText(i + 1);
+        }
     }
 }

@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class MainMenuPanel : MonoBehaviour
 {
     [SerializeField] private RectTransform settingPanel;
+    [SerializeField] private RectTransform levelPanel;
     [SerializeField] private Button playBtn;
     [SerializeField] private Button levelBtn;
     [SerializeField] private Button settingBtn;
@@ -17,10 +18,18 @@ public class MainMenuPanel : MonoBehaviour
     void OnEnable()
     {
         settingBtn.onClick.AddListener(SettingPanelClicked);
+        levelBtn.onClick.AddListener(OpenLevelPanel);
     }
+
+    private void OpenLevelPanel()
+    {
+        levelPanel.gameObject.SetActive(true);
+    }
+
     void OnDisable()
     {
         settingBtn.onClick.RemoveAllListeners();
+        levelBtn.onClick.RemoveAllListeners();
     }
     private void SettingPanelClicked()
     {
